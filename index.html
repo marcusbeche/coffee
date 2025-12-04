@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+		<meta name="theme-color" content="#0f0f14">
+		<title>Café Colibri</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="./styles.css">
+	</head>
+	<body>
+		<div id="app" class="app">
+			<header class="topbar">
+				<div class="brand"></div>
+				<div class="actions">
+					<button id="btn-fullscreen" class="chip" title="Tela cheia">⤢</button>
+					<button id="btn-sound" class="chip" title="Som">🔊</button>
+				</div>
+			</header>
+
+			<main class="content">
+				<section class="hero">
+					<div class="hero-card">
+						<div class="hero-mark">M</div>
+						<div class="hero-text">
+							<h2>M coffe</h2>
+							<p>Seu café com estilo</p>
+						</div>
+					</div>
+				</section>
+				<section class="grid" id="drinks-grid">
+					<!-- Conteúdo gerado via JS -->
+				</section>
+			</main>
+
+			<footer class="bottombar">
+				<div class="status">
+					<span class="dot dot--ok"></span>
+					<span id="machine-status">Pronta</span>
+				</div>
+				<label class="toggle">
+					<input type="checkbox" id="test-mode">
+					<span>Modo teste</span>
+				</label>
+			</footer>
+		</div>
+
+		<!-- Bottom Sheet de opções -->
+		<div id="sheet" class="sheet hidden" aria-hidden="true">
+			<div class="sheet__card">
+				<div class="sheet__header">
+					<div class="sheet__icon" id="sheet-icon">☕</div>
+					<div class="sheet__title">
+						<h2 id="sheet-title">Bebida</h2>
+						<p id="sheet-desc">Ajuste as opções e inicie</p>
+					</div>
+					<button class="sheet__close" id="sheet-close" aria-label="Fechar">✕</button>
+				</div>
+				<div class="sheet__body">
+					<div class="row">
+						<label class="group">
+							<span class="group__label">Tamanho</span>
+							<div class="segmented" role="tablist" aria-label="Tamanho">
+								<button class="segmented__btn" data-size="80">80 ml</button>
+								<button class="segmented__btn is-active" data-size="120">120 ml</button>
+								<button class="segmented__btn" data-size="160">160 ml</button>
+							</div>
+						</label>
+					</div>
+					<div class="row">
+						<label class="group">
+							<span class="group__label">Açúcar</span>
+							<div class="segmented" role="tablist" aria-label="Açúcar">
+								<button class="segmented__btn is-active" data-sugar="0">0</button>
+								<button class="segmented__btn" data-sugar="1">Normal</button>
+								<button class="segmented__btn" data-sugar="2">+</button>
+							</div>
+						</label>
+					</div>
+				</div>
+				<div class="sheet__footer">
+					<button id="btn-brew" class="btn btn--primary">Preparar</button>
+				</div>
+			</div>
+			<div class="scrim"></div>
+		</div>
+
+		<!-- Overlay de preparo -->
+		<div id="brew" class="brew hidden" aria-hidden="true">
+			<div class="brew__card">
+				<div class="brew__ring">
+					<svg viewBox="0 0 120 120">
+						<circle cx="60" cy="60" r="52" class="ring-bg"></circle>
+						<circle cx="60" cy="60" r="52" class="ring-fg" id="ring-fg"></circle>
+					</svg>
+					<div class="brew__icon" id="brew-icon">☕</div>
+				</div>
+				<h3 id="brew-title">Preparando…</h3>
+				<p id="brew-detail">Aguarde alguns segundos</p>
+				<button id="brew-cancel" class="btn btn--ghost">Cancelar</button>
+			</div>
+			<div class="scrim"></div>
+		</div>
+
+		<script src="./app.js"></script>
+	</body>
+	</html>
+
+
